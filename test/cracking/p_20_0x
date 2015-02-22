@@ -1,0 +1,13 @@
+; 20.x
+
+(ns cracking.p_20_0x
+  (:use [clojure.test]))
+
+(defn foo [s]
+  s
+  )
+
+(deftest a-test
+  (testing
+    (is (= (foo nil) nil))
+    ))
