@@ -57,3 +57,9 @@
     []
     (let [xs (map #(vec [(first c1) %]) c2)]
       (concat xs (pairs (rest c1) c2)))))
+
+(defn remove-first [c x]
+  "Removes the first occurence of x in c"
+  (let [[l r] (split-with (partial not= x) c)]
+    (concat l (rest r))))
+

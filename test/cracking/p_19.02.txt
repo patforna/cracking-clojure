@@ -1,0 +1,16 @@
+; Design an algorithm to figure out if someone has won in a game of
+; tic-tac-toe.
+
+; Here's some clojure pseudo code on how this could be solved:
+; Time: O(n)
+
+(loop [to-visit <all-squares>] # could optimise this to all potential winning squares
+  (if (seq to-visit)
+    (let [square (first to-visit)
+          symbol (symbol-of square)
+          r (take-while #(= % symbol) (right-of square))
+          b (take-while #(= % symbol) (below-of square))
+          d (take-while #(= % symbol) (diagonal-of square))]
+          (if (= (max (map count [r b d])) 3)
+            true
+            (recur (remove-from to-visit [sq r b d))))))
